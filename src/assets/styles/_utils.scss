@@ -1,0 +1,37 @@
+.container {
+    padding-left: var(--container-mobile-indent);
+    padding-right: var(--container-mobile-indent);
+    margin: 0 auto;
+}
+
+@media screen and (min-width: $screen-md) {
+    .container {
+        padding-left: var(--container-desktop-indent);
+        padding-right: var(--container-desktop-indent);
+    }
+    .pagewidth_max {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.color-default {
+    color: var(--foreground-default)
+}
+
+.color-secondary {
+    color: var(--foreground-secondary)
+}
+
+.color-tertiary {
+    color: var(--foreground-tertiary)
+}
+
+.color-light {
+    color: var(--foreground-light)
+}
+
+.m-x-auto {
+    margin-left: auto;
+    margin-right: auto;
+}

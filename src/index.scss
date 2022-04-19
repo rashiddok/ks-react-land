@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './assets/styles/breakpoints';
+@import './assets/styles/utils';
+:root {
+  --foreground-default: #000000;
+  --foreground-secondary: #4d4d4d;
+  --foreground-tertiary: #f4faff;
+  --foreground-fortiary: #0088cc;
+  --foreground-light: #797979;
+  --background-default: #ffffff;
+  --background-secondary: #eee;
+  --background-tertiary: #c1c1c1;
+  --background-fortiary: #777;
+  --box-shadow-dark: rgba(0, 0, 0, .5);
+  --box-shadow-light: rgba(0, 0, 0, .15);
+  --screen-s: 576px;
+  --screen-md: 768px;
+  --screen-lg: 992px;
+  --screen-xl: 1200px;
+  --screen-xxl: 1400px;
+  --container-desktop-indent: 8vw;
+  --container-mobile-indent: 4vw;
+}
+
+body {
+  background: var(--background-default);
+}
+
+//.App.theme_dark {
+//  .logo-brand {
+//    background-image: url('./assets/images/logo_white.png');
+//    background-size: contain;
+//    background-repeat: no-repeat;
+//  }
+//}
+//.theme_light {
+//  display: flex;
+//  .logo-brand {
+//    background-image: url('./assets/images/logo_black.png');
+//    background-size: contain;
+//    background-repeat: no-repeat;
+//  }
+//}
+
+* {
+  // transition: color .2s;
+  // transition: background .2s;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "PT Sans", sans-serif;
+}
+
+fa-icon {
+  color: var(--foreground-default);
+}

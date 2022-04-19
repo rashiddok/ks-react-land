@@ -1,0 +1,11 @@
+.share-button {
+  color: var(--foreground-light);
+  background: unset;
+  border: unset;
+  transition: color .3s;
+  margin-right: 1vw;
+  cursor: pointer;
+  &:hover {
+    color: var(--foreground-secondary);
+  }
+}

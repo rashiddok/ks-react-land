@@ -1,0 +1,19 @@
+@import './src/assets/styles/breakpoints';
+.footer {
+  padding-left: var(--container-mobile-indent);
+  padding-right: var(--container-mobile-indent);
+  margin-top: auto;
+  // position: absolute;
+  bottom: 0;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: $screen-md) {
+  .footer {
+    padding-left: var(--container-desktop-indent);
+    padding-right: var(--container-desktop-indent);
+  }
+}

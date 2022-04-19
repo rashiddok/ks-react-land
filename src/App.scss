@@ -1,0 +1,15 @@
+.theme_dark {
+  .logo-brand {
+    background-image: url('./assets/images/logo_white.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.theme_light {
+  .logo-brand {
+    background-image: url('./assets/images/logo_black.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
