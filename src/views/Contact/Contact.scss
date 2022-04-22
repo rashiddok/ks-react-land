@@ -1,0 +1,38 @@
+@import './src/assets/styles/breakpoints';
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  &__description {
+    display: flex;
+    flex-direction: column;
+    .description-header {
+      font-size: 52px;
+      font-weight: bold;
+      color: var(--foreground-secondary);
+      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .description-text {
+      font-size: 14px;
+      color: var(--foreground-light);
+    }
+  }
+  &__socials {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .contact {
+    padding-left: 8vw;
+    padding-right: 8vw;
+    justify-content: space-between;
+    flex-direction: row;
+    &__description {
+      width: 47%;
+    }
+  }
+}

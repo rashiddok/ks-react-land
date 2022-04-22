@@ -1,0 +1,33 @@
+.form__group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  label {
+    font-size: 16px;
+    margin-bottom: .5rem;
+    color: var(--foreground-light);
+  }
+  input {
+    &::placeholder {
+      color: var(--foreground-secondary);
+    }
+  }
+  textarea {
+    resize: none;
+  }
+  input,
+  textarea {
+    border: 1px solid var(--background-tertiary);
+    border-radius: 0;
+    font-size: 16px;
+    padding: .5rem 1rem;
+    color: var(--foreground-light);
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    &:active {
+      outline: none;
+    }
+  }
+}
