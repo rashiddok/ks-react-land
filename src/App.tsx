@@ -1,14 +1,16 @@
 import React from 'react';
-import Header from './layout/header/Header'
-import Footer from './layout/footer/Footer'
+import {BrowserRouter} from 'react-router-dom'
 import './App.scss';
+import Router from "./router/Router";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <div className="theme_light">
-      <Header></Header>
-        <Footer></Footer>
-    </div>
+      <BrowserRouter>
+          <Layout>
+              <Router></Router>
+          </Layout>
+      </BrowserRouter>
   );
 }
 

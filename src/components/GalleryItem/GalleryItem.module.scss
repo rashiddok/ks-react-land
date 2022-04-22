@@ -1,0 +1,55 @@
+@import './src/assets/styles/breakpoints';
+.project {
+  position: relative;
+  height: 100%;
+  display: block;
+  text-decoration: unset;
+  color: inherit;
+  &__cover {
+    width: 100%;
+    object-fit: contain;
+  }
+  &_name {
+    font-size: 2rem;
+  }
+  &__overlay {
+    opacity: 0;
+    transition: opacity .3s;
+    .overlay_name {
+      position: absolute;
+      bottom: 0%;
+      left: 20%;
+      transform: translate(-50%, -50%) translate3d(0, 50%, 0);
+      transition: transform 300ms;
+      // transform: ;
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      // background-image: linear-gradient(to bottom, transparent, #fff);
+      background: var(--background-secondary);
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+    }
+  }
+  &:hover {
+    .project__overlay {
+      opacity: 1;
+      .overlay_name {
+        transform: translate(-50%, -50%) translate3d(0, 0%, 0);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .project {
+    &__cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

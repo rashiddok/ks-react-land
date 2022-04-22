@@ -2,10 +2,17 @@ import React from 'react';
 import {faFacebook, faLinkedin, faTelegram} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {ShareDialogLink} from '../../models/ShareDialogLink'
-import './ShareDialog.scss';
+import {ShareDialogLink} from '../../../../models/ShareDialogLink'
+import ShareModalButton from './ShareModalButton'
+import './ShareModal.scss';
+import Modal from "../../Modal/Modal";
 
-const ShareDialog = () => {
+type ComponentProps = {
+    visible: boolean,
+    setVisible: (...args: any) => void;
+}
+
+const ShareModal = ({visible, setVisible}: ComponentProps) => {
     const url = document.location.href
 
     const shareItems = [
@@ -24,34 +31,23 @@ const ShareDialog = () => {
         return link
     }
 
-    function shareItemClick(shareItem: ShareDialogLink){
-        window.open(shareItem.shareUrl)
-    }
-
     function copyLinkClick(){
         navigator.clipboard.writeText(url)
     }
     return (
-        <div className="share-dialog__wrapper">
+        <Modal setVisible={setVisible}>
             <div className="share-dialog">
                 <header>
                     <h3 className="dialog-title color-default">Поделиться в соц. сетях</h3>
-                    <button className="close-button">
+                    <button className="close-button" onClick={()=>setVisible(false)}>
                         <FontAwesomeIcon icon={faXmark} size="lg" className="color-default"/>
                     </button>
                 </header>
                 <div className="share__list">
 
                     {
-                        //TODO: MOVE TO COMPONENT
-                        shareItems.map((v, index)=>{
-                            return(
-                                <a role="button" className="share__link" key={index} onClick={()=>shareItemClick(v)}>
-                                    <FontAwesomeIcon icon={v.faIcon} size="lg" className={["icon", v.faIconClass].join(' ')}/>
-                                    <span>{v.name}</span>
-                                </a>
-                            )
-                        })
+                        shareItems.map((v, index)=>
+                        <ShareModalButton url={v.shareUrl} key={index} text={v.name} icon={v.faIcon} iconSize="lg" iconClass={['icon', v.faIconClass].join('')}/>)
                     }
                 </div>
                 <div className="link-share" onClick={copyLinkClick}>
@@ -59,8 +55,8 @@ const ShareDialog = () => {
                     <button className="copy-link">Скопировать</button>
                 </div>
             </div>
-        </div>
+        </Modal>
     );
 };
 
-export default ShareDialog;
+export default ShareModal;

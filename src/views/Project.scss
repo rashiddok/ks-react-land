@@ -1,0 +1,125 @@
+@import './src/assets/styles/breakpoints';
+.project {
+  &__cover {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 4rem;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+  &__description {
+    display: flex;
+    margin-top: 4rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    margin: 4rem auto 0 auto;
+    img.project-item {
+      object-fit: cover;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      &.item__aligned {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  &__name {
+    font-size: 52px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--foreground-default);
+  }
+  &__category {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--foreground-secondary);
+    &.category_indent {
+      margin-top: 2rem;
+    }
+  }
+  &-m-b {
+    margin-bottom: 2rem;
+  }
+  app-share {
+    margin-left: 1rem;
+  }
+}
+
+.description__header {
+  font-size: 32px;
+  color: var(--foreground-default);
+  font-weight: bold;
+}
+
+.description__text {
+  font-size: 18px;
+  color: var(--foreground-secondary);
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &.content-row_center {
+    align-items: center;
+  }
+  &.content-row_top {
+    align-items: flex-start;
+  }
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  &.content-column_center {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: $screen-md) {
+  .project {
+    &__cover {
+      width: 47%;
+      // height: 30vw;
+      object-fit: cover;
+      margin-bottom: 0;
+    }
+    &__header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 8vw;
+      padding-right: 8vw;
+    }
+    &__description {
+      align-items: flex-start;
+      padding-left: 8vw;
+      padding-right: 8vw;
+    }
+    &__items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .w-47 {
+      width: 47%;
+    }
+  }
+}
+
+@media screen and (min-width: $screen-xl) {
+  .project {
+    &__items {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

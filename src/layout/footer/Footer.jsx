@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.scss'
-import Socials from '../../components/socials/Socials'
-import Share from '../../components/share/Share'
+import Socials from '../../components/UI/Socials/Socials'
+import Share from '../../components/UI/Share/Share'
 
 const Footer = () => {
   return (
