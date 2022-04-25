@@ -1,23 +1,36 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+type NavLink = {
+    to: string;
+    label: string;
+}
 
 const Header = (props: any) => {
+    const navLinks: NavLink[] = [
+        {
+            to: '/',
+            label: 'Главная'
+        },
+        {
+            to: '/about',
+            label: 'Обо мне'
+        },
+        {
+            to: '/contact',
+            label: 'Контакты'
+        },
+    ]
+
   return (
     <div className="header container">
-      <nav>
-        <ul className="header__nav">
-          <li className="nav__link active">
-            <Link to={"/"}>Главная</Link>
-          </li>
-          <li className="nav__link">
-            <Link to={"/about"}>Обо мне</Link>
-          </li>
-          <li className="nav__link">
-            <Link to={"/contact"}>Контакты</Link>
-          </li>
-        </ul>
+      <nav className="header__nav">
+          {
+              navLinks.map(link=>
+                  <NavLink className={({isActive})=> isActive ? 'active nav__link' : 'nav__link'} to={link.to} key={link.to}>{link.label}</NavLink>
+              )
+          }
       </nav>
       <div className="header__logo">
         <a href="" className="logo-brand"></a>
@@ -31,6 +44,5 @@ const Header = (props: any) => {
   );
 };
 
-Header.propTypes = {};
 
 export default Header;

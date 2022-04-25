@@ -6,27 +6,27 @@
   position: relative;
   z-index: 2;
   &__nav {
-    list-style-type: none;
     margin: 0;
     padding: 0;
     font-size: 24px;
-    li.nav__link {
+    .nav__link {
       line-height: 1.8em;
-      margin-bottom: 3vh;
+      margin-right: 1vw;
+      margin-left: 1vw;
       text-align: center;
+      text-transform: uppercase;
+      color: var(--foreground-light);
+      text-decoration: unset;
+      transition: color .3s;
+      &:first-child{
+        margin-left: 0;
+      }
       &:last-child {
+        margin-right: 0;
         margin-bottom: 0;
       }
       &:hover {
-        a {
-          color: var(--foreground-secondary);
-        }
-      }
-      a {
-        text-transform: uppercase;
-        color: var(--foreground-light);
-        text-decoration: unset;
-        transition: color .3s;
+        color: var(--foreground-secondary);
       }
       &.active {
         border-bottom: 1px solid var(--foreground-default);
