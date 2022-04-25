@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AboutModel } from "../models/AboutModel";
+import { AboutModel } from "../utils/models/AboutModel";
 
 export default class AboutService {
   private static apiUrl: string = "http://localhost:3000";

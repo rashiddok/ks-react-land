@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetching } from "../../hooks/useFetching";
 import ProjectsService from "../../services/projects.service";
-import { ProjectModel } from "../../models/ProjectModel";
+import { ProjectModel } from "../../utils/models/ProjectModel";
 import "./Project.scss";
 import Share from "../../components/UI/Share/Share";
 import ProjectNavigation from "../../components/ProjectNavigation";
 import Gallery from "../../components/Gallery";
 import GalleryLightbox from "../../components/GalleryLightbox/GalleryLightbox";
-import { GalleryImage } from "../../models/GalleryImage";
+import { GalleryImage } from "../../utils/models/GalleryImage";
 
 const Project = () => {
   const { projectname } = useParams();

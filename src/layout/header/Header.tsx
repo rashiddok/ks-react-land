@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { Link, NavLink } from "react-router-dom";
+import ThemeSwitchButton from "../../components/UI/ThemeSwitchButton";
 
 type NavLink = {
     to: string;
@@ -39,6 +40,7 @@ const Header = (props: any) => {
         <a href="#" className="nav__link nav__link-standalone">
           eng
         </a>
+          <ThemeSwitchButton></ThemeSwitchButton>
       </div>
     </div>
   );

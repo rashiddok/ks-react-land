@@ -1,5 +1,5 @@
 import axios from "axios";
-import { EmailMessage } from "../models/EmailMessage";
+import { EmailMessage } from "../utils/models/EmailMessage";
 
 export default class ContactService {
   private static apiUrl: string = "http://localhost:3000";

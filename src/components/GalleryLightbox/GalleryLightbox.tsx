@@ -5,7 +5,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import classes from "./GalleryLightbox.module.scss";
-import { GalleryImage } from "../../models/GalleryImage";
+import { GalleryImage } from "../../utils/models/GalleryImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../UI/Modal/Modal";
 

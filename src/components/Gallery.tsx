@@ -3,7 +3,7 @@ import {useFetching} from "../hooks/useFetching";
 import ProjectsService from "../services/projects.service";
 import classes from "./Gallery.module.scss";
 import GalleryItem from "./GalleryItem/GalleryItem";
-import {GalleryItemModel} from "../models/GalleryItemModel";
+import {GalleryItemModel} from "../utils/models/GalleryItemModel";
 
 type ComponentProps = {
     showAllGalleryItems?: boolean

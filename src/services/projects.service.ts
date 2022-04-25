@@ -1,7 +1,7 @@
 import axios, {AxiosResponse} from "axios";
-import {GalleryItemModel} from "../models/GalleryItemModel";
-import {ProjectModel} from "../models/ProjectModel";
-import {GalleryImage} from "../models/GalleryImage";
+import {GalleryItemModel} from "../utils/models/GalleryItemModel";
+import {ProjectModel} from "../utils/models/ProjectModel";
+import {GalleryImage} from "../utils/models/GalleryImage";
 
 export default class ProjectsService{
     private static apiUrl: string = 'http://localhost:3000'

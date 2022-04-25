@@ -2,7 +2,7 @@ import React from 'react';
 import {faFacebook, faLinkedin, faTelegram} from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {ShareDialogLink} from '../../../../models/ShareDialogLink'
+import {ShareDialogLink} from '../../../../utils/models/ShareDialogLink'
 import ShareModalButton from './ShareModalButton'
 import './ShareModal.scss';
 import Modal from "../../Modal/Modal";

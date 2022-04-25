@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ContactForm.scss";
 import Button from "../UI/Button/Button";
-import { EmailMessage } from "../../models/EmailMessage";
+import { EmailMessage } from "../../utils/models/EmailMessage";
 import ContactService from "../../services/contact.service";
 import Input from "../UI/Input/Input";
 

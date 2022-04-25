@@ -1,5 +1,5 @@
 import React from 'react';
-import {GalleryItemModel} from "../../models/GalleryItemModel";
+import {GalleryItemModel} from "../../utils/models/GalleryItemModel";
 import classes from "./GalleryItem.module.scss";
 import {Link} from "react-router-dom";
 
