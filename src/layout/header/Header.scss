@@ -54,9 +54,12 @@
       display: flex;
     }
   }
-  a.nav__link-standalone {
+  a.nav__link-standalone,button.nav__link-standalone {
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
+    background: unset;
+    border: unset;
     color: var(--foreground-light);
     text-decoration: unset;
     transition: color .3s;

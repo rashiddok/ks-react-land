@@ -1,7 +1,7 @@
 import React from "react";
 import "./Contact.scss";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import Socials from "../../components/UI/Socials/Socials";
+import Socials from "../../components/Socials/Socials";
 
 const Contact = () => {
   return (

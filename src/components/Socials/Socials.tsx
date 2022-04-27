@@ -1,6 +1,5 @@
 import React from "react";
 import "./Socials.scss";
-import { FontAwesomeIcon, Props } from "@fortawesome/react-fontawesome";
 import {
   faBehance,
   faInstagram,
@@ -13,8 +12,6 @@ type ComponentProps = {
   iconSpacing?: string;
   iconSize?: string;
 };
-
-// @ts-ignore
 const Socials = ({
   iconSpacing = "small",
   iconSize = "lg",

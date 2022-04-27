@@ -1,10 +1,15 @@
-import {
-  AvailableThemes,
-  ThemeAction,
-  ThemeState,
-} from "../../utils/types/ThemeTypes";
+import { AvailableThemes } from "../../utils/types/ThemeTypes";
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
+
+interface ThemeState {
+  value: AvailableThemes;
+}
+
+interface ThemeAction {
+  type: string;
+  payload: AvailableThemes;
+}
 
 const initialState = {
   value: localStorage.getItem("app_theme") || AvailableThemes.THEME_LIGHT,

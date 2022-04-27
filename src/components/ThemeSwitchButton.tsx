@@ -6,9 +6,9 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { AvailableThemes } from "../../utils/types/ThemeTypes";
-import { getTheme, setTheme } from "../../store/slices/themeSlice";
-import { useTypedSelector } from "../../hooks/useTypedState";
+import { AvailableThemes } from "../utils/types/ThemeTypes";
+import { getTheme, setTheme } from "../store/slices/themeSlice";
+import { useTypedSelector } from "../hooks/useTypedState";
 
 const buttonClasses = {
   border: "unset",

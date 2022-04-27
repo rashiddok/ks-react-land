@@ -1,20 +1,6 @@
-export enum ThemeActionTypes {
-  GET_CURRENT_THEME = "GET_CURRENT_THEME",
-  SET_CURRENT_THEME = "SET_CURRENT_THEME",
-}
-
 export enum AvailableThemes {
   THEME_LIGHT = "THEME_LIGHT",
   THEME_DARK = "THEME_DARK",
-}
-
-export interface ThemeState {
-  value: AvailableThemes;
-}
-
-export interface ThemeAction {
-  type: string;
-  payload: AvailableThemes;
 }
 
 export interface Theme {

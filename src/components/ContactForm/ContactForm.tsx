@@ -10,6 +10,9 @@ const ContactForm = () => {
     new EmailMessage("", "")
   );
 
+  const onFieldChange = (e: any, field: string) =>
+    setMessage({ ...message, [field]: e.target.value });
+
   function hasFormError(): boolean {
     if (message.message.length === 0 || message.email.length === 0) {
       return true;
@@ -34,17 +37,25 @@ const ContactForm = () => {
         <input
           type="email"
           onKeyPress={(e) => emailKeypress(e)}
+          onChange={(e) => onFieldChange(e, "email")}
+          value={message.email}
           name="email"
           id="email"
         />
       </Input>
       <Input controlName="Сообщение">
-        <textarea name="message" id="message" cols={30} rows={6}></textarea>
+        <textarea
+          name="message"
+          id="message"
+          onChange={(e) => onFieldChange(e, "message")}
+          value={message.message}
+          cols={30}
+          rows={6}
+        />
       </Input>
-      {
-        //TODO: ADD DISABLED
-      }
-      <Button onClick={sendForm}>Отправить</Button>
+      <Button onClick={sendForm} disabled={hasFormError()}>
+        Отправить
+      </Button>
     </form>
   );
 };

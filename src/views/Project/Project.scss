@@ -51,6 +51,50 @@
   app-share {
     margin-left: 1rem;
   }
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin: 5rem auto 3rem auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    button.navigation {
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      color: var(--foreground-secondary);
+      font-size: 1.1rem;
+      &:first-child {
+        margin-right: 1rem;
+      }
+      &:last-child {
+        margin-left: 1rem;
+      }
+      &-next,
+      &-prev {
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2rem;
+          height: 2rem;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+      }
+      &-prev {
+        &::before {
+          left: -1.5rem;
+        }
+      }
+      &-next {
+        &::before {
+          right: -1.5rem;
+        }
+      }
+    }
+  }
 }
 
 .description__header {
