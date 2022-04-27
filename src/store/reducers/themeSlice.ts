@@ -1,16 +1,14 @@
 import {
   AvailableThemes,
   ThemeAction,
-  ThemeActionTypes,
   ThemeState,
 } from "../../utils/types/ThemeTypes";
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
-const initialState: ThemeState = {
-  value:
-    (localStorage.getItem("app_theme") as AvailableThemes) ||
-    AvailableThemes.THEME_LIGHT,
-};
+const initialState = {
+  value: localStorage.getItem("app_theme") || AvailableThemes.THEME_LIGHT,
+} as ThemeState;
 
 export const themeSlice = createSlice({
   name: "theme",
@@ -25,3 +23,5 @@ export const themeSlice = createSlice({
 export const { setTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;
+
+export const getTheme = (state: RootState) => state.theme.value;

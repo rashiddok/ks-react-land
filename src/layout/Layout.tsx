@@ -8,11 +8,12 @@ import {
 } from "../utils/types/ThemeTypes";
 import { setThemeStyles } from "../utils/themeUtils";
 import { useTypedSelector } from "../hooks/useTypedState";
+import { getTheme } from "../store/reducers/themeSlice";
+
 const Layout = ({ children }: any) => {
-  const themePreference = useTypedSelector((state) => state.theme.value);
+  const themePreference = useTypedSelector(getTheme);
 
   function getThemeClass() {
-    console.log(themePreference);
     if (themePreference === AvailableThemes.THEME_DARK) {
       setThemeStyles(themeDark);
       return "theme_dark";

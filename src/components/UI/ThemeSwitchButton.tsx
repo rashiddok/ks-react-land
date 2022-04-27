@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  faMoon,
+  faSun,
+  IconDefinition,
+} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
 import { AvailableThemes } from "../../utils/types/ThemeTypes";
-import { setTheme } from "../../store/reducers/themeSlice";
+import { getTheme, setTheme } from "../../store/reducers/themeSlice";
 import { useTypedSelector } from "../../hooks/useTypedState";
 
 const buttonClasses = {
@@ -13,31 +17,30 @@ const buttonClasses = {
 };
 
 const ThemeSwitchButton = () => {
-  const themePreference = useTypedSelector((state) => state.theme.value);
+  const themePreference = useTypedSelector(getTheme);
   const dispatch = useDispatch();
   const [themeIcon, setThemeIcon] = useState(faMoon);
 
-  function setDarkTheme() {
-    setThemeIcon(faSun);
-    dispatch(setTheme(AvailableThemes.THEME_DARK));
-  }
-
-  function setLightTheme() {
-    setThemeIcon(faMoon);
-    dispatch(setTheme(AvailableThemes.THEME_LIGHT));
+  function changeTheme(icon: IconDefinition, theme: AvailableThemes) {
+    setThemeIcon(icon);
+    dispatch(setTheme(theme));
   }
 
   function switchTheme() {
     if (themePreference === AvailableThemes.THEME_DARK) {
-      setLightTheme();
+      changeTheme(faSun, AvailableThemes.THEME_LIGHT);
       return;
     }
-    setDarkTheme();
+    changeTheme(faMoon, AvailableThemes.THEME_DARK);
   }
 
   return (
     <button style={buttonClasses} onClick={() => switchTheme()}>
-      <FontAwesomeIcon icon={themeIcon} size="lg" />
+      <FontAwesomeIcon
+        icon={themeIcon}
+        size="lg"
+        style={{ background: "var(--foreground-default)" }}
+      />
     </button>
   );
 };
