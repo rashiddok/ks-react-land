@@ -1,41 +1,42 @@
-import React, {useEffect, useState} from 'react';
-import {useFetching} from "../hooks/useFetching";
-import ProjectsService from "../services/projects.service";
+import React, { useEffect, useState } from "react";
 import classes from "./Gallery.module.scss";
 import GalleryItem from "./GalleryItem/GalleryItem";
-import {GalleryItemModel} from "../utils/models/GalleryItemModel";
+import { fetchProjects, selectProjects } from "../store/slices/projectsSlice";
+import { useTypedSelector } from "../hooks/useTypedState";
+import { useTypedDispatch } from "../hooks/useTypedDispatch";
 
 type ComponentProps = {
-    showAllGalleryItems?: boolean
-}
+  showAllGalleryItems?: boolean;
+};
 
-const Gallery = ({showAllGalleryItems = true} : ComponentProps) => {
-    const [projects, setProjects] = useState<GalleryItemModel[]>([])
-    const [getProjects, isLoading, projectError] = useFetching(async ()=>{
-        const res = await ProjectsService.getProjects()
-        setProjects(res)
-    })
+const Gallery = ({ showAllGalleryItems = true }: ComponentProps) => {
+  const dispatch = useTypedDispatch();
+  const projects = useTypedSelector(selectProjects);
+  const projectStatus = useTypedSelector((state) => state.projects.status);
+  const galleryClasses = [classes.gallery];
 
-    useEffect(()=>{
-        getProjects()
-    },[])
+  if (!showAllGalleryItems) {
+    galleryClasses.push(classes.gallery_small);
+  }
 
-    function galleryClasses(): string{
-        const galleryClasses = [classes.gallery]
-        if(!showAllGalleryItems){
-            galleryClasses.push(classes.gallery_small)
-        }
-        return galleryClasses.join(' ')
+  useEffect(() => {
+    if (projectStatus === "idle") {
+      dispatch(fetchProjects());
     }
+  }, [projectStatus, dispatch]);
 
-
-    return (
-        <div className={galleryClasses()}>
-            {projects.map(project=>
-                <GalleryItem title={project.title} cover={project.cover} shortTitle={project.shortTitle} key={project.shortTitle}></GalleryItem>
-            )}
-        </div>
-    );
+  return (
+    <div className={galleryClasses.join(" ")}>
+      {projects.map((project) => (
+        <GalleryItem
+          title={project.title}
+          cover={project.cover}
+          shortTitle={project.shortTitle}
+          key={project.shortTitle}
+        ></GalleryItem>
+      ))}
+    </div>
+  );
 };
 
 export default Gallery;

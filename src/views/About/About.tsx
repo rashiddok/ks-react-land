@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AboutModel } from "../../utils/models/AboutModel";
 import { useFetching } from "../../hooks/useFetching";
 import AboutService from "../../services/about.service";

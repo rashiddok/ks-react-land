@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { AvailableThemes } from "../../utils/types/ThemeTypes";
-import { getTheme, setTheme } from "../../store/reducers/themeSlice";
+import { getTheme, setTheme } from "../../store/slices/themeSlice";
 import { useTypedSelector } from "../../hooks/useTypedState";
 
 const buttonClasses = {
@@ -39,7 +39,7 @@ const ThemeSwitchButton = () => {
       <FontAwesomeIcon
         icon={themeIcon}
         size="lg"
-        style={{ background: "var(--foreground-default)" }}
+        style={{ color: "var(--foreground-default)" }}
       />
     </button>
   );

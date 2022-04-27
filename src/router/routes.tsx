@@ -1,7 +1,9 @@
-import Home from "../views/Home";
-import Project from "../views/Project/Project";
-import About from "../views/About/About";
-import Contact from "../views/Contact/Contact";
+import { lazy } from "react";
+
+const Home = lazy(() => import("../views/Home"));
+const Project = lazy(() => import("../views/Project/Project"));
+const About = lazy(() => import("../views/About/About"));
+const Contact = lazy(() => import("../views/Contact/Contact"));
 
 export const appRoutes = [
   {

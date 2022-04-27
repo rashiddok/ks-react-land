@@ -8,7 +8,7 @@ import {
 } from "../utils/types/ThemeTypes";
 import { setThemeStyles } from "../utils/themeUtils";
 import { useTypedSelector } from "../hooks/useTypedState";
-import { getTheme } from "../store/reducers/themeSlice";
+import { getTheme } from "../store/slices/themeSlice";
 
 const Layout = ({ children }: any) => {
   const themePreference = useTypedSelector(getTheme);
