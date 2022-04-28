@@ -1,8 +1,9 @@
 import axios from "axios";
 import { AboutModel } from "../utils/models/AboutModel";
+import env from "../environment";
 
 class AboutService {
-  private static apiUrl: string = "http://localhost:3000";
+  private static apiUrl: string = env.API_URL;
 
   static getAbout(): Promise<AboutModel> {
     return axios
