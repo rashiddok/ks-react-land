@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.scss";
 import { Link, NavLink } from "react-router-dom";
-import ThemeSwitchButton from "../../components/ThemeSwitchButton";
+import ThemeSwitchButton from "../ThemeSwitchButton";
 
 type HeaderLink = {
   to: string;

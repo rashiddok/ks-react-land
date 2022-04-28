@@ -5,19 +5,42 @@ import {
   faChevronRight,
   faGrip,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTypedSelector } from "../../hooks/useTypedState";
+import {
+  selectProjectNeighboursName,
+  selectProjects,
+} from "../../store/slices/projectsSlice";
+import { Link } from "react-router-dom";
 
-const ProjectNavigation = ({ projectShortTitle }: any) => {
+const ProjectNavigation = ({
+  projectShortTitle,
+}: {
+  projectShortTitle: string;
+}) => {
+  const projects = useTypedSelector((state) =>
+    selectProjectNeighboursName(state, projectShortTitle)
+  );
+  console.log(projects);
+
   return (
     <div className="project__navigation">
-      <button className="navigation navigation-prev">
+      <Link
+        to={`/projects/${projects.prev}`}
+        className="navigation navigation-prev"
+        style={projects.prev ? {} : { pointerEvents: "none" }}
+      >
         <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
-      <button className="navigation">
+      </Link>
+      <Link to="/projects" className="navigation">
         <FontAwesomeIcon icon={faGrip} />
-      </button>
-      <button className="navigation navigation-next">
+      </Link>
+      <Link
+        to={`/projects/${projects.next}`}
+        className="navigation navigation-next"
+        style={projects.next ? {} : { pointerEvents: "none" }}
+      >
         <FontAwesomeIcon icon={faChevronRight} />
-      </button>
+      </Link>
     </div>
   );
 };

@@ -1,11 +1,9 @@
-@import './src/assets/styles/breakpoints';
+@import '../../assets/styles/breakpoints';
 .footer {
   padding-left: var(--container-mobile-indent);
   padding-right: var(--container-mobile-indent);
-  margin-top: auto;
-  // position: absolute;
+   position: absolute;
   bottom: 0;
-  padding-top: 2vh;
   padding-bottom: 2vh;
   display: flex;
   align-items: center;

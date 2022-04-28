@@ -35,6 +35,10 @@ body {
   font-family: "PT Sans", sans-serif;
 }
 
+#root{
+  height: 100%;
+}
+
 fa-icon {
   color: var(--foreground-default);
 }

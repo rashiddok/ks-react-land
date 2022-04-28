@@ -1,12 +1,19 @@
-import React, { Suspense } from "react";
-import { Route, Routes, useRoutes } from "react-router-dom";
-import { appRoutes } from "./routes";
+import React, { Suspense, useLayoutEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import AppRoutes from "./routes";
+import Loader from "../components/UI/Loader/Loader";
 
 const Router = () => {
+  const location = useLocation();
+  // Scroll to top if path changes
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
-        {appRoutes.map((route) => (
+        {AppRoutes.map((route) => (
           <Route path={route.path} element={route.element} key={route.path} />
         ))}
       </Routes>

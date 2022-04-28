@@ -1,3 +1,11 @@
+
+.theme{
+  min-height: 100%;
+  padding-bottom: 5rem;
+  position: relative;
+  box-sizing: border-box;
+}
+
 .theme_dark {
   .logo-brand {
     background-image: url('./assets/images/logo_white.png');

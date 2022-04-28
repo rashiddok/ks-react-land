@@ -6,7 +6,7 @@
   grid-column-gap: 2vw;
   grid-row-gap: 2vh;
   &.gallery_small {
-    // grid-auto-rows: 30vh;
+     grid-auto-rows: 30vh;
     grid-template-columns: repeat(1, 1fr);
   }
   .project {
@@ -28,8 +28,8 @@
       .overlay_name {
         position: absolute;
         bottom: 0%;
-        left: 20%;
-        transform: translate(-50%, -50%) translate3d(0, 50%, 0);
+        left: 10%;
+        transform: translate(0%, -50%) translate3d(0, 50%, 0);
         transition: transform 300ms;
         // transform: ;
       }
@@ -48,7 +48,7 @@
       .project__overlay {
         opacity: 1;
         .overlay_name {
-          transform: translate(-50%, -50%) translate3d(0, 0%, 0);
+          transform: translate(0%, -50%) translate3d(0, 0%, 0);
         }
       }
     }

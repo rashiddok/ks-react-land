@@ -1,19 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import { AboutModel } from "../../utils/models/AboutModel";
 import { useFetching } from "../../hooks/useFetching";
-import AboutService from "../../services/about.service";
+import { getAbout } from "../../services/about.service";
 import "./About.scss";
+import Loader from "../../components/UI/Loader/Loader";
 
 const About = () => {
   const [about, setAbout] = useState<AboutModel>();
   const [fetchAbout, isAboutLoading, aboutError] = useFetching(async () => {
-    const res = await AboutService.getAbout();
+    const res = await getAbout();
     setAbout(res);
   });
 
   useEffect(() => {
     fetchAbout();
   }, []);
+
+  if (isAboutLoading || aboutError) {
+    return <Loader />;
+  }
 
   return (
     <div className="about container">

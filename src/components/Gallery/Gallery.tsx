@@ -4,6 +4,7 @@ import GalleryItem from "./GalleryItem";
 import {
   fetchProjects,
   selectProjects,
+  selectRandomProjects,
 } from "../../store/slices/projectsSlice";
 import { useTypedSelector } from "../../hooks/useTypedState";
 import { useTypedDispatch } from "../../hooks/useTypedDispatch";
@@ -13,8 +14,11 @@ type ComponentProps = {
 };
 
 const Gallery = ({ showAllGalleryItems = true }: ComponentProps) => {
+  const projectsSelector = showAllGalleryItems
+    ? selectProjects
+    : selectRandomProjects;
   const dispatch = useTypedDispatch();
-  const projects = useTypedSelector(selectProjects);
+  const projects = useTypedSelector(projectsSelector);
   const projectStatus = useTypedSelector((state) => state.projects.status);
   const galleryClasses = ["gallery"];
 

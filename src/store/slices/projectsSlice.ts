@@ -43,4 +43,19 @@ export const projectsSlice = createSlice({
 
 export default projectsSlice.reducer;
 
+export const selectProjectNeighboursName = (
+  state: RootState,
+  projectName: string
+) => {
+  const projects = state.projects.data;
+  const projectIndex = projects.findIndex((p) => p.shortTitle === projectName);
+  return {
+    next: projects[projectIndex + 1]?.shortTitle,
+    prev: projects[projectIndex - 1]?.shortTitle,
+  };
+};
+
 export const selectProjects = (state: RootState) => state.projects.data;
+
+export const selectRandomProjects = (state: RootState) =>
+  [...state.projects.data].sort(() => 0.5 - Math.random()).slice(0, 3);

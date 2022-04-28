@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AboutModel } from "../utils/models/AboutModel";
 
-export default class AboutService {
+class AboutService {
   private static apiUrl: string = "http://localhost:3000";
 
   static getAbout(): Promise<AboutModel> {
@@ -10,3 +10,5 @@ export default class AboutService {
       .then((res) => res.data);
   }
 }
+
+export const getAbout = () => AboutService.getAbout();
